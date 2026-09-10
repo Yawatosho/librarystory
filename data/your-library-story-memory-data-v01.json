@@ -1,0 +1,2942 @@
+{
+  "meta": {
+    "project": "YOUR LIBRARY STORY",
+    "version": "0.1",
+    "language": "ja",
+    "description": "記憶カード50枚＋深掘り質問カード。入口カードは一度に全表示せず、意味タグと関連カードを使って数枚ずつ提示する想定。",
+    "recommendedInitialDisplay": 8,
+    "recommendedNextDisplay": 8,
+    "recommendedFinalSelection": 4
+  },
+  "tagDefinitions": {
+    "book": "本そのものの記憶",
+    "place": "図書館という場所の記憶",
+    "people": "人との関係",
+    "study": "学習・調査",
+    "discovery": "発見・偶然",
+    "routine": "習慣・反復",
+    "childhood": "幼少期",
+    "school": "学校・学生時代",
+    "family": "家族",
+    "friend": "友人",
+    "romance": "恋愛・好きな人",
+    "solitude": "ひとりの時間",
+    "comfort": "安心・居場所",
+    "nostalgia": "懐かしさ",
+    "change": "人生や環境の変化",
+    "weather": "天候",
+    "evening": "夕方・夜",
+    "sensory": "匂い・温度・音など五感",
+    "accident": "ちょっとした事件",
+    "return": "再訪・戻ってくる",
+    "distance": "離れていた時間",
+    "work": "仕事",
+    "parenting": "子どもとの利用",
+    "waiting": "待つこと",
+    "embarrassment": "少し恥ずかしい・気まずい",
+    "joy": "嬉しさ",
+    "sadness": "寂しさ・切なさ",
+    "transition": "節目",
+    "reading": "読むこと",
+    "borrowing": "借りること",
+    "librarian": "司書との接点"
+  },
+  "cards": [
+    {
+      "id": "mem001",
+      "title": "はじめて図書館に入った",
+      "subtitle": "大きな棚や、たくさんの本を見た記憶。",
+      "tags": [
+        "place",
+        "childhood",
+        "discovery",
+        "sensory"
+      ],
+      "relatedCardIds": [
+        "mem004",
+        "mem005",
+        "mem048"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q006",
+        "q011",
+        "q036",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem002",
+      "title": "はじめて図書館カードをつくった",
+      "subtitle": "自分の名前が入ったカードをもらった。",
+      "tags": [
+        "borrowing",
+        "childhood",
+        "transition",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem003",
+        "mem010",
+        "mem041"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q014",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem003",
+      "title": "はじめて自分で本を借りた",
+      "subtitle": "自分で選んだ本をカウンターへ持っていった。",
+      "tags": [
+        "book",
+        "borrowing",
+        "childhood",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem002",
+        "mem010",
+        "mem012"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q027",
+        "q014",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem004",
+      "title": "家族に連れられて図書館へ行った",
+      "subtitle": "自分の意思より先に、図書館が身近にあった。",
+      "tags": [
+        "family",
+        "childhood",
+        "place",
+        "routine"
+      ],
+      "relatedCardIds": [
+        "mem001",
+        "mem005",
+        "mem050"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q009",
+        "q031",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem005",
+      "title": "学校の図書室に通った",
+      "subtitle": "教室とは少し違う、自分の居場所があった。",
+      "tags": [
+        "school",
+        "place",
+        "routine",
+        "comfort"
+      ],
+      "relatedCardIds": [
+        "mem004",
+        "mem014",
+        "mem030"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q009",
+        "q010",
+        "q036",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem006",
+      "title": "知らない図書館に入ってみた",
+      "subtitle": "旅先や引っ越し先で、初めての棚を歩いた。",
+      "tags": [
+        "place",
+        "discovery",
+        "change",
+        "return"
+      ],
+      "relatedCardIds": [
+        "mem001",
+        "mem048",
+        "mem050"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q011",
+        "q016",
+        "q036",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem007",
+      "title": "棚を端から端まで眺めた",
+      "subtitle": "目的もなく、背表紙を見ながら歩いた。",
+      "tags": [
+        "book",
+        "place",
+        "discovery",
+        "solitude"
+      ],
+      "relatedCardIds": [
+        "mem009",
+        "mem013",
+        "mem025"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q009",
+        "q006",
+        "q027",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem008",
+      "title": "表紙だけで本を選んだ",
+      "subtitle": "タイトルや装丁に惹かれて手を伸ばした。",
+      "tags": [
+        "book",
+        "discovery",
+        "reading"
+      ],
+      "relatedCardIds": [
+        "mem013",
+        "mem036",
+        "mem037"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q027",
+        "q007",
+        "q029",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem009",
+      "title": "いつも同じ棚に向かった",
+      "subtitle": "お気に入りのジャンルや場所があった。",
+      "tags": [
+        "book",
+        "place",
+        "routine",
+        "comfort"
+      ],
+      "relatedCardIds": [
+        "mem007",
+        "mem014",
+        "mem043"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q009",
+        "q006",
+        "q021",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem010",
+      "title": "何冊も抱えて帰った",
+      "subtitle": "借りられるだけ借りて、少し重いバッグで帰った。",
+      "tags": [
+        "book",
+        "borrowing",
+        "joy",
+        "routine"
+      ],
+      "relatedCardIds": [
+        "mem003",
+        "mem011",
+        "mem046"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q013",
+        "q027",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem011",
+      "title": "結局読まずに返した本があった",
+      "subtitle": "借りたときは読むつもりだった。",
+      "tags": [
+        "book",
+        "borrowing",
+        "accident"
+      ],
+      "relatedCardIds": [
+        "mem010",
+        "mem041",
+        "mem040"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q032",
+        "q015",
+        "q027",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem012",
+      "title": "何度も借りた本がある",
+      "subtitle": "買うのではなく、図書館で何度も会った。",
+      "tags": [
+        "book",
+        "reading",
+        "routine",
+        "nostalgia"
+      ],
+      "relatedCardIds": [
+        "mem039",
+        "mem040",
+        "mem003"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q007",
+        "q008",
+        "q028",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem013",
+      "title": "思いがけない本を見つけた",
+      "subtitle": "探していたものとは違う本に出会った。",
+      "tags": [
+        "book",
+        "discovery",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem007",
+        "mem024",
+        "mem039"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q027",
+        "q029",
+        "q008",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem014",
+      "title": "お気に入りの席があった",
+      "subtitle": "空いていると、ちょっと嬉しい席。",
+      "tags": [
+        "place",
+        "routine",
+        "comfort",
+        "solitude"
+      ],
+      "relatedCardIds": [
+        "mem015",
+        "mem018",
+        "mem043"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q021",
+        "q022",
+        "q009",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem015",
+      "title": "窓の外をぼんやり眺めた",
+      "subtitle": "勉強していたはずなのに、外を見ていた。",
+      "tags": [
+        "place",
+        "solitude",
+        "sensory",
+        "study"
+      ],
+      "relatedCardIds": [
+        "mem014",
+        "mem018",
+        "mem045"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q006",
+        "q023",
+        "q010",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem016",
+      "title": "図書館で居眠りした",
+      "subtitle": "静かで、暖かくて、つい。",
+      "tags": [
+        "place",
+        "comfort",
+        "sensory",
+        "accident"
+      ],
+      "relatedCardIds": [
+        "mem014",
+        "mem017",
+        "mem020"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q024",
+        "q032",
+        "q010",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem017",
+      "title": "暑い日や寒い日に逃げ込んだ",
+      "subtitle": "本以外の理由で図書館へ行った。",
+      "tags": [
+        "place",
+        "weather",
+        "comfort",
+        "sensory"
+      ],
+      "relatedCardIds": [
+        "mem016",
+        "mem044",
+        "mem019"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q023",
+        "q024",
+        "q011",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem018",
+      "title": "閉館時間までいた",
+      "subtitle": "気づけば、帰る人が少しずつ増えていた。",
+      "tags": [
+        "place",
+        "evening",
+        "routine",
+        "sensory"
+      ],
+      "relatedCardIds": [
+        "mem014",
+        "mem035",
+        "mem045"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q025",
+        "q026",
+        "q013",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem019",
+      "title": "ひとりになりたくて図書館へ行った",
+      "subtitle": "誰とも話さなくていい場所だった。",
+      "tags": [
+        "place",
+        "solitude",
+        "comfort",
+        "sadness"
+      ],
+      "relatedCardIds": [
+        "mem020",
+        "mem014",
+        "mem044"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q010",
+        "q031",
+        "q014",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem020",
+      "title": "何もしたくなくて図書館にいた",
+      "subtitle": "本を読むでもなく、ただ時間を過ごした。",
+      "tags": [
+        "place",
+        "solitude",
+        "comfort",
+        "sadness"
+      ],
+      "relatedCardIds": [
+        "mem019",
+        "mem016",
+        "mem045"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q010",
+        "q031",
+        "q014",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem021",
+      "title": "宿題をするために図書館へ行った",
+      "subtitle": "夏休み、自由研究、レポート。",
+      "tags": [
+        "study",
+        "school",
+        "place",
+        "routine"
+      ],
+      "relatedCardIds": [
+        "mem023",
+        "mem030",
+        "mem031"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q031",
+        "q002",
+        "q010",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem022",
+      "title": "本を何冊も並べて調べた",
+      "subtitle": "一冊では答えが見つからなかった。",
+      "tags": [
+        "study",
+        "book",
+        "discovery"
+      ],
+      "relatedCardIds": [
+        "mem023",
+        "mem025",
+        "mem027"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q027",
+        "q008",
+        "q014",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem023",
+      "title": "レポートや論文を書くためにこもった",
+      "subtitle": "締切と図書館がセットになっている。",
+      "tags": [
+        "study",
+        "school",
+        "place",
+        "routine"
+      ],
+      "relatedCardIds": [
+        "mem021",
+        "mem022",
+        "mem018"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q031",
+        "q010",
+        "q025",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem024",
+      "title": "知らなかった世界を本で知った",
+      "subtitle": "本から突然、世界が広がった。",
+      "tags": [
+        "book",
+        "discovery",
+        "reading",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem013",
+        "mem039",
+        "mem040"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q007",
+        "q008",
+        "q014",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem025",
+      "title": "調べていたことから脱線した",
+      "subtitle": "関係ない本のほうがおもしろくなった。",
+      "tags": [
+        "study",
+        "book",
+        "discovery",
+        "accident"
+      ],
+      "relatedCardIds": [
+        "mem007",
+        "mem022",
+        "mem013"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q027",
+        "q029",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem026",
+      "title": "本の並び方に意味があると気づいた",
+      "subtitle": "棚が少し違って見えるようになった。",
+      "tags": [
+        "study",
+        "book",
+        "discovery",
+        "librarian"
+      ],
+      "relatedCardIds": [
+        "mem022",
+        "mem027",
+        "mem029"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q014",
+        "q029",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem027",
+      "title": "図書館でしか見られない資料を使った",
+      "subtitle": "古い本、新聞、専門書、特別な資料。",
+      "tags": [
+        "study",
+        "book",
+        "discovery",
+        "place"
+      ],
+      "relatedCardIds": [
+        "mem022",
+        "mem026",
+        "mem029"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q014",
+        "q029",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem028",
+      "title": "司書さんに本を探してもらった",
+      "subtitle": "自分では見つけられなかった本が出てきた。",
+      "tags": [
+        "librarian",
+        "people",
+        "book",
+        "discovery"
+      ],
+      "relatedCardIds": [
+        "mem029",
+        "mem013",
+        "mem038"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q017",
+        "q014",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem029",
+      "title": "司書さんに何かを教えてもらった",
+      "subtitle": "本だけでなく、調べ方や使い方を教わった。",
+      "tags": [
+        "librarian",
+        "people",
+        "study",
+        "discovery"
+      ],
+      "relatedCardIds": [
+        "mem028",
+        "mem026",
+        "mem022"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q017",
+        "q014",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem030",
+      "title": "友達と一緒に図書館へ行った",
+      "subtitle": "勉強したり、話したり、本を見たり。",
+      "tags": [
+        "friend",
+        "people",
+        "school",
+        "place"
+      ],
+      "relatedCardIds": [
+        "mem031",
+        "mem035",
+        "mem005"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q017",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem031",
+      "title": "友達と勉強するはずだった",
+      "subtitle": "でも、あまり勉強しなかった。",
+      "tags": [
+        "friend",
+        "people",
+        "school",
+        "accident",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem030",
+        "mem035",
+        "mem042"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q017",
+        "q032",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem032",
+      "title": "好きな人を図書館で見かけた",
+      "subtitle": "話しかけたかもしれないし、見ていただけかもしれない。",
+      "tags": [
+        "romance",
+        "people",
+        "school",
+        "nostalgia",
+        "place"
+      ],
+      "relatedCardIds": [
+        "mem033",
+        "mem035",
+        "mem036"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q019",
+        "q020",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem033",
+      "title": "いつも同じ時間にいる人がいた",
+      "subtitle": "名前も知らないけれど、なんとなく覚えている。",
+      "tags": [
+        "people",
+        "routine",
+        "place",
+        "nostalgia"
+      ],
+      "relatedCardIds": [
+        "mem032",
+        "mem043",
+        "mem014"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q017",
+        "q020",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem034",
+      "title": "誰かを待ちながら本を読んだ",
+      "subtitle": "まだかな、と何度も時計を見た。",
+      "tags": [
+        "people",
+        "waiting",
+        "reading",
+        "place"
+      ],
+      "relatedCardIds": [
+        "mem035",
+        "mem045",
+        "mem038"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q002",
+        "q012",
+        "q013",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem035",
+      "title": "一緒に帰る人がいた",
+      "subtitle": "閉館して外に出ると、もう暗かった。",
+      "tags": [
+        "people",
+        "friend",
+        "evening",
+        "nostalgia"
+      ],
+      "relatedCardIds": [
+        "mem030",
+        "mem032",
+        "mem045"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q017",
+        "q018",
+        "q026",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem036",
+      "title": "誰かが読んでいる本が気になった",
+      "subtitle": "あの本、なんだったんだろう。",
+      "tags": [
+        "people",
+        "book",
+        "discovery",
+        "reading"
+      ],
+      "relatedCardIds": [
+        "mem032",
+        "mem008",
+        "mem038"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q020",
+        "q027",
+        "q029",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem037",
+      "title": "借りた本を見られるのが少し恥ずかしかった",
+      "subtitle": "自分の内側を見られるような感じがした。",
+      "tags": [
+        "book",
+        "people",
+        "embarrassment",
+        "borrowing"
+      ],
+      "relatedCardIds": [
+        "mem036",
+        "mem038",
+        "mem008"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q028",
+        "q032",
+        "q039",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem038",
+      "title": "誰かに読んでほしくて本をすすめた",
+      "subtitle": "感想を聞くまで、少しそわそわした。",
+      "tags": [
+        "book",
+        "people",
+        "reading",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem036",
+        "mem037",
+        "mem028"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q028",
+        "q017",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem039",
+      "title": "昔読んだ本を偶然見つけた",
+      "subtitle": "表紙を見た瞬間、その頃まで戻った。",
+      "tags": [
+        "book",
+        "nostalgia",
+        "return",
+        "discovery"
+      ],
+      "relatedCardIds": [
+        "mem012",
+        "mem040",
+        "mem048"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q007",
+        "q029",
+        "q030",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem040",
+      "title": "昔好きだった本が、今は違って見えた",
+      "subtitle": "本は同じなのに、自分が変わっていた。",
+      "tags": [
+        "book",
+        "nostalgia",
+        "change",
+        "reading"
+      ],
+      "relatedCardIds": [
+        "mem039",
+        "mem047",
+        "mem049"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q007",
+        "q030",
+        "q015",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem041",
+      "title": "返却期限を忘れた",
+      "subtitle": "カバンや机から本が出てきて焦った。",
+      "tags": [
+        "borrowing",
+        "accident",
+        "embarrassment"
+      ],
+      "relatedCardIds": [
+        "mem011",
+        "mem042",
+        "mem010"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q032",
+        "q015",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem042",
+      "title": "静かな場所で音を立ててしまった",
+      "subtitle": "物を落としたり、くしゃみをしたり。",
+      "tags": [
+        "place",
+        "accident",
+        "embarrassment",
+        "sensory"
+      ],
+      "relatedCardIds": [
+        "mem041",
+        "mem016",
+        "mem031"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q032",
+        "q024",
+        "q037",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem043",
+      "title": "いつもの席に誰かが座っていた",
+      "subtitle": "ほんの少しだけ、残念だった。",
+      "tags": [
+        "place",
+        "routine",
+        "people",
+        "comfort"
+      ],
+      "relatedCardIds": [
+        "mem014",
+        "mem033",
+        "mem009"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q021",
+        "q022",
+        "q009",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem044",
+      "title": "雨がやむまで図書館にいた",
+      "subtitle": "予定より長くいることになった。",
+      "tags": [
+        "weather",
+        "place",
+        "waiting",
+        "sensory"
+      ],
+      "relatedCardIds": [
+        "mem017",
+        "mem034",
+        "mem045"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q023",
+        "q024",
+        "q012",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem045",
+      "title": "図書館を出たら外が暗くなっていた",
+      "subtitle": "入ったときとは違う時間になっていた。",
+      "tags": [
+        "evening",
+        "place",
+        "sensory",
+        "nostalgia"
+      ],
+      "relatedCardIds": [
+        "mem018",
+        "mem035",
+        "mem044"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q025",
+        "q026",
+        "q013",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem046",
+      "title": "図書館から帰る道が好きだった",
+      "subtitle": "バッグには借りたばかりの本が入っていた。",
+      "tags": [
+        "place",
+        "borrowing",
+        "nostalgia",
+        "joy"
+      ],
+      "relatedCardIds": [
+        "mem010",
+        "mem045",
+        "mem039"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q013",
+        "q026",
+        "q027",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem047",
+      "title": "最後にその図書館へ行った日がある",
+      "subtitle": "卒業、引っ越し、閉館。最後だと知っていたかもしれない。",
+      "tags": [
+        "transition",
+        "change",
+        "place",
+        "sadness",
+        "nostalgia"
+      ],
+      "relatedCardIds": [
+        "mem048",
+        "mem049",
+        "mem040"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q016",
+        "q031",
+        "q018",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem048",
+      "title": "久しぶりに昔の図書館へ行った",
+      "subtitle": "思っていたより小さく見えた。",
+      "tags": [
+        "return",
+        "nostalgia",
+        "place",
+        "change"
+      ],
+      "relatedCardIds": [
+        "mem047",
+        "mem039",
+        "mem006"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q016",
+        "q036",
+        "q031",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem049",
+      "title": "しばらく図書館から離れていた",
+      "subtitle": "行かない時期も、自分の図書館史の一部。",
+      "tags": [
+        "distance",
+        "change",
+        "place"
+      ],
+      "relatedCardIds": [
+        "mem047",
+        "mem048",
+        "mem050"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q033",
+        "q034",
+        "q031",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    },
+    {
+      "id": "mem050",
+      "title": "昔とは違う理由で図書館へ行く",
+      "subtitle": "仕事、子どもと一緒、勉強、休憩。使い方は変わっていく。",
+      "tags": [
+        "change",
+        "place",
+        "work",
+        "parenting",
+        "return"
+      ],
+      "relatedCardIds": [
+        "mem049",
+        "mem004",
+        "mem006"
+      ],
+      "questionIds": [
+        "q001",
+        "q003",
+        "q004",
+        "q034",
+        "q035",
+        "q015",
+        "q005",
+        "q038",
+        "q039",
+        "q040"
+      ],
+      "finaleWeight": 1.0,
+      "enabled": true
+    }
+  ],
+  "questions": [
+    {
+      "id": "q001",
+      "text": "それは、いつ頃のこと？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q001_o1",
+          "label": "幼いころ"
+        },
+        {
+          "id": "q001_o2",
+          "label": "小学生"
+        },
+        {
+          "id": "q001_o3",
+          "label": "中高生"
+        },
+        {
+          "id": "q001_o4",
+          "label": "大学・専門学校など"
+        },
+        {
+          "id": "q001_o5",
+          "label": "社会人になってから"
+        },
+        {
+          "id": "q001_o6",
+          "label": "最近"
+        },
+        {
+          "id": "q001_o7",
+          "label": "時期はよく覚えていない"
+        }
+      ],
+      "tags": [
+        "time"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q002",
+      "text": "そのとき、誰かと一緒だった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q002_o1",
+          "label": "ひとり"
+        },
+        {
+          "id": "q002_o2",
+          "label": "家族"
+        },
+        {
+          "id": "q002_o3",
+          "label": "友達"
+        },
+        {
+          "id": "q002_o4",
+          "label": "好きな人・気になる人"
+        },
+        {
+          "id": "q002_o5",
+          "label": "先生・学校の人"
+        },
+        {
+          "id": "q002_o6",
+          "label": "子ども"
+        },
+        {
+          "id": "q002_o7",
+          "label": "その他"
+        },
+        {
+          "id": "q002_o8",
+          "label": "よく覚えていない"
+        }
+      ],
+      "tags": [
+        "people"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q003",
+      "text": "その図書館は、どんな図書館だった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q003_o1",
+          "label": "公共図書館"
+        },
+        {
+          "id": "q003_o2",
+          "label": "学校図書館・図書室"
+        },
+        {
+          "id": "q003_o3",
+          "label": "大学図書館"
+        },
+        {
+          "id": "q003_o4",
+          "label": "職場の図書館"
+        },
+        {
+          "id": "q003_o5",
+          "label": "旅先・知らない土地の図書館"
+        },
+        {
+          "id": "q003_o6",
+          "label": "その他"
+        },
+        {
+          "id": "q003_o7",
+          "label": "よく覚えていない"
+        }
+      ],
+      "tags": [
+        "place"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q004",
+      "text": "その記憶は、どんな気持ちに近い？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q004_o1",
+          "label": "うれしい"
+        },
+        {
+          "id": "q004_o2",
+          "label": "楽しい"
+        },
+        {
+          "id": "q004_o3",
+          "label": "落ち着く"
+        },
+        {
+          "id": "q004_o4",
+          "label": "懐かしい"
+        },
+        {
+          "id": "q004_o5",
+          "label": "わくわくする"
+        },
+        {
+          "id": "q004_o6",
+          "label": "少し寂しい"
+        },
+        {
+          "id": "q004_o7",
+          "label": "少し恥ずかしい"
+        },
+        {
+          "id": "q004_o8",
+          "label": "不思議"
+        },
+        {
+          "id": "q004_o9",
+          "label": "なんとも言えない"
+        }
+      ],
+      "tags": [
+        "emotion"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q005",
+      "text": "その記憶は、今でもわりとはっきり残っている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q005_o1",
+          "label": "かなりはっきり"
+        },
+        {
+          "id": "q005_o2",
+          "label": "ところどころ"
+        },
+        {
+          "id": "q005_o3",
+          "label": "雰囲気だけ"
+        },
+        {
+          "id": "q005_o4",
+          "label": "ほとんど断片"
+        }
+      ],
+      "tags": [
+        "memory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q006",
+      "text": "その場所のどんなところを覚えている？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q006_o1",
+          "label": "棚"
+        },
+        {
+          "id": "q006_o2",
+          "label": "机や椅子"
+        },
+        {
+          "id": "q006_o3",
+          "label": "窓"
+        },
+        {
+          "id": "q006_o4",
+          "label": "カウンター"
+        },
+        {
+          "id": "q006_o5",
+          "label": "階段・廊下"
+        },
+        {
+          "id": "q006_o6",
+          "label": "照明"
+        },
+        {
+          "id": "q006_o7",
+          "label": "音"
+        },
+        {
+          "id": "q006_o8",
+          "label": "匂い"
+        },
+        {
+          "id": "q006_o9",
+          "label": "外の景色"
+        },
+        {
+          "id": "q006_o10",
+          "label": "あまり覚えていない"
+        }
+      ],
+      "tags": [
+        "place",
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q007",
+      "text": "そのとき読んでいた本を覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q007_o1",
+          "label": "タイトルまで覚えている"
+        },
+        {
+          "id": "q007_o2",
+          "label": "ジャンルだけ覚えている"
+        },
+        {
+          "id": "q007_o3",
+          "label": "表紙だけ覚えている"
+        },
+        {
+          "id": "q007_o4",
+          "label": "本は覚えていない"
+        }
+      ],
+      "tags": [
+        "book"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q008",
+      "text": "その本は、その後もあなたの中に残った？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q008_o1",
+          "label": "何度も読み返した"
+        },
+        {
+          "id": "q008_o2",
+          "label": "別の本を読むきっかけになった"
+        },
+        {
+          "id": "q008_o3",
+          "label": "誰かにすすめた"
+        },
+        {
+          "id": "q008_o4",
+          "label": "今も覚えている"
+        },
+        {
+          "id": "q008_o5",
+          "label": "その後は特に"
+        }
+      ],
+      "tags": [
+        "book",
+        "reading"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q009",
+      "text": "その図書館には、よく通っていた？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q009_o1",
+          "label": "かなり通っていた"
+        },
+        {
+          "id": "q009_o2",
+          "label": "ときどき"
+        },
+        {
+          "id": "q009_o3",
+          "label": "その頃だけ"
+        },
+        {
+          "id": "q009_o4",
+          "label": "一度きりに近い"
+        }
+      ],
+      "tags": [
+        "routine"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q010",
+      "text": "その記憶の中で、図書館はどんな場所だった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q010_o1",
+          "label": "本を探す場所"
+        },
+        {
+          "id": "q010_o2",
+          "label": "勉強する場所"
+        },
+        {
+          "id": "q010_o3",
+          "label": "ひとりでいられる場所"
+        },
+        {
+          "id": "q010_o4",
+          "label": "誰かと過ごす場所"
+        },
+        {
+          "id": "q010_o5",
+          "label": "待つ場所"
+        },
+        {
+          "id": "q010_o6",
+          "label": "休む場所"
+        },
+        {
+          "id": "q010_o7",
+          "label": "特別な場所"
+        },
+        {
+          "id": "q010_o8",
+          "label": "ただの日常の場所"
+        }
+      ],
+      "tags": [
+        "meaning"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q011",
+      "text": "その日、図書館へ行った理由を覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q011_o1",
+          "label": "本を借りるため"
+        },
+        {
+          "id": "q011_o2",
+          "label": "勉強・調べもの"
+        },
+        {
+          "id": "q011_o3",
+          "label": "誰かと一緒に"
+        },
+        {
+          "id": "q011_o4",
+          "label": "時間をつぶすため"
+        },
+        {
+          "id": "q011_o5",
+          "label": "涼む・暖まるため"
+        },
+        {
+          "id": "q011_o6",
+          "label": "なんとなく"
+        },
+        {
+          "id": "q011_o7",
+          "label": "別の用事のついで"
+        },
+        {
+          "id": "q011_o8",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "motivation"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q012",
+      "text": "そのあと、何をしたか覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q012_o1",
+          "label": "そのまま帰った"
+        },
+        {
+          "id": "q012_o2",
+          "label": "誰かと帰った"
+        },
+        {
+          "id": "q012_o3",
+          "label": "別の場所へ行った"
+        },
+        {
+          "id": "q012_o4",
+          "label": "本を読み続けた"
+        },
+        {
+          "id": "q012_o5",
+          "label": "勉強を続けた"
+        },
+        {
+          "id": "q012_o6",
+          "label": "よく覚えていない"
+        }
+      ],
+      "tags": [
+        "after"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q013",
+      "text": "帰り道のことも覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q013_o1",
+          "label": "よく覚えている"
+        },
+        {
+          "id": "q013_o2",
+          "label": "少し覚えている"
+        },
+        {
+          "id": "q013_o3",
+          "label": "図書館の中だけ覚えている"
+        }
+      ],
+      "tags": [
+        "after",
+        "nostalgia"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q014",
+      "text": "その出来事は、当時の自分にとって大きかった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q014_o1",
+          "label": "かなり大きかった"
+        },
+        {
+          "id": "q014_o2",
+          "label": "少しだけ"
+        },
+        {
+          "id": "q014_o3",
+          "label": "そのときは普通だった"
+        },
+        {
+          "id": "q014_o4",
+          "label": "今振り返ると大きい"
+        }
+      ],
+      "tags": [
+        "meaning"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q015",
+      "text": "今の自分なら、同じことをしそう？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q015_o1",
+          "label": "たぶんする"
+        },
+        {
+          "id": "q015_o2",
+          "label": "少し形を変えてする"
+        },
+        {
+          "id": "q015_o3",
+          "label": "もうしないと思う"
+        },
+        {
+          "id": "q015_o4",
+          "label": "わからない"
+        }
+      ],
+      "tags": [
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q016",
+      "text": "その図書館には、今も行く？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q016_o1",
+          "label": "今も行く"
+        },
+        {
+          "id": "q016_o2",
+          "label": "たまに行く"
+        },
+        {
+          "id": "q016_o3",
+          "label": "もう行かない"
+        },
+        {
+          "id": "q016_o4",
+          "label": "もう行けない"
+        },
+        {
+          "id": "q016_o5",
+          "label": "わからない"
+        }
+      ],
+      "tags": [
+        "return"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q017",
+      "text": "その人とは、今も会う？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q017_o1",
+          "label": "今もよく会う"
+        },
+        {
+          "id": "q017_o2",
+          "label": "たまに会う"
+        },
+        {
+          "id": "q017_o3",
+          "label": "もうほとんど会わない"
+        },
+        {
+          "id": "q017_o4",
+          "label": "もう会わない"
+        },
+        {
+          "id": "q017_o5",
+          "label": "名前も知らない人だった"
+        }
+      ],
+      "tags": [
+        "people",
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q018",
+      "text": "その人のことを思い出すと、図書館も一緒に浮かぶ？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q018_o1",
+          "label": "かなり浮かぶ"
+        },
+        {
+          "id": "q018_o2",
+          "label": "少し浮かぶ"
+        },
+        {
+          "id": "q018_o3",
+          "label": "むしろ図書館からその人を思い出す"
+        },
+        {
+          "id": "q018_o4",
+          "label": "そこまではない"
+        }
+      ],
+      "tags": [
+        "people",
+        "nostalgia"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q019",
+      "text": "話しかけた？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q019_o1",
+          "label": "話しかけた"
+        },
+        {
+          "id": "q019_o2",
+          "label": "向こうから話しかけられた"
+        },
+        {
+          "id": "q019_o3",
+          "label": "見ていただけ"
+        },
+        {
+          "id": "q019_o4",
+          "label": "話しかけたかったけど、やめた"
+        },
+        {
+          "id": "q019_o5",
+          "label": "よく覚えていない"
+        }
+      ],
+      "tags": [
+        "romance",
+        "people"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q020",
+      "text": "その人が何をしていたか覚えている？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q020_o1",
+          "label": "本を読んでいた"
+        },
+        {
+          "id": "q020_o2",
+          "label": "勉強していた"
+        },
+        {
+          "id": "q020_o3",
+          "label": "本を探していた"
+        },
+        {
+          "id": "q020_o4",
+          "label": "誰かと話していた"
+        },
+        {
+          "id": "q020_o5",
+          "label": "歩いていた"
+        },
+        {
+          "id": "q020_o6",
+          "label": "座っていただけ"
+        },
+        {
+          "id": "q020_o7",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "people",
+        "place"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q021",
+      "text": "その席の何が好きだった？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q021_o1",
+          "label": "静かだった"
+        },
+        {
+          "id": "q021_o2",
+          "label": "窓があった"
+        },
+        {
+          "id": "q021_o3",
+          "label": "人目につきにくかった"
+        },
+        {
+          "id": "q021_o4",
+          "label": "明るかった"
+        },
+        {
+          "id": "q021_o5",
+          "label": "落ち着いた"
+        },
+        {
+          "id": "q021_o6",
+          "label": "コンセントがあった"
+        },
+        {
+          "id": "q021_o7",
+          "label": "理由はうまく言えない"
+        }
+      ],
+      "tags": [
+        "place",
+        "comfort"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q022",
+      "text": "その席が空いていない日はどうした？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q022_o1",
+          "label": "別の席へ行った"
+        },
+        {
+          "id": "q022_o2",
+          "label": "空くのを待った"
+        },
+        {
+          "id": "q022_o3",
+          "label": "少し残念だっただけ"
+        },
+        {
+          "id": "q022_o4",
+          "label": "その日は帰ったこともある"
+        }
+      ],
+      "tags": [
+        "place",
+        "routine"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q023",
+      "text": "どんな天気だったか覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q023_o1",
+          "label": "晴れ"
+        },
+        {
+          "id": "q023_o2",
+          "label": "雨"
+        },
+        {
+          "id": "q023_o3",
+          "label": "雪"
+        },
+        {
+          "id": "q023_o4",
+          "label": "暑かった"
+        },
+        {
+          "id": "q023_o5",
+          "label": "寒かった"
+        },
+        {
+          "id": "q023_o6",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "weather",
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q024",
+      "text": "図書館の中の温度や匂いを覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q024_o1",
+          "label": "かなり覚えている"
+        },
+        {
+          "id": "q024_o2",
+          "label": "なんとなく覚えている"
+        },
+        {
+          "id": "q024_o3",
+          "label": "ほとんど覚えていない"
+        }
+      ],
+      "tags": [
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q025",
+      "text": "閉館を知らせる音やアナウンスを覚えている？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q025_o1",
+          "label": "よく覚えている"
+        },
+        {
+          "id": "q025_o2",
+          "label": "なんとなく"
+        },
+        {
+          "id": "q025_o3",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "evening",
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q026",
+      "text": "外に出たとき、どんな感じだった？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q026_o1",
+          "label": "暗かった"
+        },
+        {
+          "id": "q026_o2",
+          "label": "涼しかった"
+        },
+        {
+          "id": "q026_o3",
+          "label": "寒かった"
+        },
+        {
+          "id": "q026_o4",
+          "label": "雨が降っていた"
+        },
+        {
+          "id": "q026_o5",
+          "label": "雪が降っていた"
+        },
+        {
+          "id": "q026_o6",
+          "label": "明るかった"
+        },
+        {
+          "id": "q026_o7",
+          "label": "静かだった"
+        },
+        {
+          "id": "q026_o8",
+          "label": "にぎやかだった"
+        },
+        {
+          "id": "q026_o9",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "evening",
+        "weather",
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q027",
+      "text": "その本をどうして選んだ？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q027_o1",
+          "label": "表紙"
+        },
+        {
+          "id": "q027_o2",
+          "label": "タイトル"
+        },
+        {
+          "id": "q027_o3",
+          "label": "好きな作家"
+        },
+        {
+          "id": "q027_o4",
+          "label": "棚で偶然"
+        },
+        {
+          "id": "q027_o5",
+          "label": "誰かのおすすめ"
+        },
+        {
+          "id": "q027_o6",
+          "label": "授業・課題"
+        },
+        {
+          "id": "q027_o7",
+          "label": "司書さんのおすすめ"
+        },
+        {
+          "id": "q027_o8",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "book",
+        "discovery"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q028",
+      "text": "その本を借りたことを、誰かに話した？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q028_o1",
+          "label": "話した"
+        },
+        {
+          "id": "q028_o2",
+          "label": "すすめた"
+        },
+        {
+          "id": "q028_o3",
+          "label": "見せただけ"
+        },
+        {
+          "id": "q028_o4",
+          "label": "誰にも話していない"
+        },
+        {
+          "id": "q028_o5",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "book",
+        "people"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q029",
+      "text": "その本を見つけた瞬間、どう感じた？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q029_o1",
+          "label": "うれしかった"
+        },
+        {
+          "id": "q029_o2",
+          "label": "懐かしかった"
+        },
+        {
+          "id": "q029_o3",
+          "label": "驚いた"
+        },
+        {
+          "id": "q029_o4",
+          "label": "少し寂しかった"
+        },
+        {
+          "id": "q029_o5",
+          "label": "特に何も"
+        },
+        {
+          "id": "q029_o6",
+          "label": "うまく言えない"
+        }
+      ],
+      "tags": [
+        "book",
+        "emotion"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q030",
+      "text": "昔と今で、その本の印象は変わった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q030_o1",
+          "label": "かなり変わった"
+        },
+        {
+          "id": "q030_o2",
+          "label": "少し変わった"
+        },
+        {
+          "id": "q030_o3",
+          "label": "ほとんど変わらない"
+        },
+        {
+          "id": "q030_o4",
+          "label": "もう内容を覚えていない"
+        }
+      ],
+      "tags": [
+        "book",
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q031",
+      "text": "その頃、図書館以外ではどんな毎日だった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q031_o1",
+          "label": "学校中心"
+        },
+        {
+          "id": "q031_o2",
+          "label": "受験・試験の時期"
+        },
+        {
+          "id": "q031_o3",
+          "label": "仕事が忙しかった"
+        },
+        {
+          "id": "q031_o4",
+          "label": "家族との時間が多かった"
+        },
+        {
+          "id": "q031_o5",
+          "label": "環境が変わった時期"
+        },
+        {
+          "id": "q031_o6",
+          "label": "特に思い出せない"
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q032",
+      "text": "その出来事、今なら笑い話？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q032_o1",
+          "label": "完全に笑い話"
+        },
+        {
+          "id": "q032_o2",
+          "label": "ちょっと恥ずかしい"
+        },
+        {
+          "id": "q032_o3",
+          "label": "今も少し気になる"
+        },
+        {
+          "id": "q032_o4",
+          "label": "もうほとんど気にしていない"
+        }
+      ],
+      "tags": [
+        "accident",
+        "embarrassment"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q033",
+      "text": "図書館に行かなくなったのは、何かきっかけがあった？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q033_o1",
+          "label": "進学・卒業"
+        },
+        {
+          "id": "q033_o2",
+          "label": "引っ越し"
+        },
+        {
+          "id": "q033_o3",
+          "label": "生活が忙しくなった"
+        },
+        {
+          "id": "q033_o4",
+          "label": "本を買うようになった"
+        },
+        {
+          "id": "q033_o5",
+          "label": "ネットで済むようになった"
+        },
+        {
+          "id": "q033_o6",
+          "label": "なんとなく"
+        },
+        {
+          "id": "q033_o7",
+          "label": "覚えていない"
+        }
+      ],
+      "tags": [
+        "distance",
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q034",
+      "text": "また図書館に戻ったきっかけは？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q034_o1",
+          "label": "読みたい本があった"
+        },
+        {
+          "id": "q034_o2",
+          "label": "仕事・勉強"
+        },
+        {
+          "id": "q034_o3",
+          "label": "子どもと一緒"
+        },
+        {
+          "id": "q034_o4",
+          "label": "引っ越し先で"
+        },
+        {
+          "id": "q034_o5",
+          "label": "イベント"
+        },
+        {
+          "id": "q034_o6",
+          "label": "なんとなく"
+        },
+        {
+          "id": "q034_o7",
+          "label": "まだ戻っていない"
+        }
+      ],
+      "tags": [
+        "return",
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q035",
+      "text": "昔と今で、図書館の使い方は変わった？",
+      "type": "multi",
+      "options": [
+        {
+          "id": "q035_o1",
+          "label": "借りる本が変わった"
+        },
+        {
+          "id": "q035_o2",
+          "label": "滞在時間が変わった"
+        },
+        {
+          "id": "q035_o3",
+          "label": "勉強・仕事で使うようになった"
+        },
+        {
+          "id": "q035_o4",
+          "label": "子どもと行くようになった"
+        },
+        {
+          "id": "q035_o5",
+          "label": "電子資料も使うようになった"
+        },
+        {
+          "id": "q035_o6",
+          "label": "あまり変わらない"
+        }
+      ],
+      "tags": [
+        "change"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q036",
+      "text": "その図書館を一言で思い出すなら？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q036_o1",
+          "label": "静か"
+        },
+        {
+          "id": "q036_o2",
+          "label": "明るい"
+        },
+        {
+          "id": "q036_o3",
+          "label": "暗い"
+        },
+        {
+          "id": "q036_o4",
+          "label": "広い"
+        },
+        {
+          "id": "q036_o5",
+          "label": "小さい"
+        },
+        {
+          "id": "q036_o6",
+          "label": "古い"
+        },
+        {
+          "id": "q036_o7",
+          "label": "新しい"
+        },
+        {
+          "id": "q036_o8",
+          "label": "落ち着く"
+        },
+        {
+          "id": "q036_o9",
+          "label": "にぎやか"
+        },
+        {
+          "id": "q036_o10",
+          "label": "うまく言えない"
+        }
+      ],
+      "tags": [
+        "place",
+        "sensory"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q037",
+      "text": "その記憶を誰かに話したことはある？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q037_o1",
+          "label": "何度もある"
+        },
+        {
+          "id": "q037_o2",
+          "label": "一度くらいある"
+        },
+        {
+          "id": "q037_o3",
+          "label": "たぶんない"
+        },
+        {
+          "id": "q037_o4",
+          "label": "今はじめて思い出した"
+        }
+      ],
+      "tags": [
+        "memory",
+        "people"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q038",
+      "text": "この記憶を、最後のストーリーに残したい？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q038_o1",
+          "label": "ぜひ残したい"
+        },
+        {
+          "id": "q038_o2",
+          "label": "候補に残したい"
+        },
+        {
+          "id": "q038_o3",
+          "label": "どちらでも"
+        },
+        {
+          "id": "q038_o4",
+          "label": "今回は残さなくていい"
+        }
+      ],
+      "tags": [
+        "final"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q039",
+      "text": "この記憶は、自分らしいと思う？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q039_o1",
+          "label": "かなり自分らしい"
+        },
+        {
+          "id": "q039_o2",
+          "label": "少し自分らしい"
+        },
+        {
+          "id": "q039_o3",
+          "label": "どちらともいえない"
+        },
+        {
+          "id": "q039_o4",
+          "label": "むしろ意外な記憶"
+        }
+      ],
+      "tags": [
+        "final",
+        "meaning"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "q040",
+      "text": "この記憶を思い出して、別の記憶も浮かんだ？",
+      "type": "single",
+      "options": [
+        {
+          "id": "q040_o1",
+          "label": "かなり浮かんだ"
+        },
+        {
+          "id": "q040_o2",
+          "label": "ひとつ浮かんだ"
+        },
+        {
+          "id": "q040_o3",
+          "label": "まだ浮かばない"
+        }
+      ],
+      "tags": [
+        "network"
+      ],
+      "enabled": true
+    }
+  ],
+  "selectionRules": {
+    "initial": {
+      "count": 8,
+      "strategy": "diverse",
+      "notes": "意味タグが偏らないように8枚を提示。romance/nostalgia/place/book/people/study等を混在させる。"
+    },
+    "next": {
+      "count": 8,
+      "nearRatio": 0.5,
+      "exploreRatio": 0.375,
+      "surpriseRatio": 0.125,
+      "avoidPreviouslyShown": true,
+      "notes": "選択済みカードのrelatedCardIdsと共有タグを半分程度、未探索タグを3枚程度、意味的に遠いカードを1枚程度混ぜる。"
+    },
+    "final": {
+      "count": 4,
+      "strategy": [
+        "network_centrality",
+        "user_marked_keep",
+        "distinctive_memory",
+        "temporal_or_emotional_contrast"
+      ],
+      "notes": "単純な上位4枚ではなく、中心的記憶・本人が残したい記憶・その人らしい記憶・少し意外な記憶を混ぜる。"
+    }
+  }
+}

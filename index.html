@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f3efe4" />
+    <meta name="description" content="カードをめくりながら、図書館にまつわる記憶をたどるインタラクティブ作品。" />
+    <title>YOUR LIBRARY STORY</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <main id="app" class="app-shell">
+      <section id="title-screen" class="screen title-screen is-active" aria-labelledby="main-title">
+        <div class="title-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="eyebrow">AN ALBUM OF SMALL MEMORIES</p>
+        <h1 id="main-title">YOUR<br />LIBRARY<br />STORY</h1>
+        <p class="intro-copy">図書館のことを、<br />どれくらい覚えていますか。</p>
+        <button id="start-button" class="primary-button" type="button">
+          <span>はじめる</span><span aria-hidden="true">→</span>
+        </button>
+        <p id="resume-note" class="resume-note" hidden>途中の記憶から、続きをたどれます。</p>
+      </section>
+
+      <section id="selection-screen" class="screen selection-screen" aria-labelledby="selection-title" hidden>
+        <header class="screen-header">
+          <p class="brand-small">YOUR LIBRARY STORY</p>
+          <p id="journey-progress" class="journey-progress"></p>
+        </header>
+        <div class="selection-heading">
+          <p class="section-kicker">MEMORY CARDS</p>
+          <h2 id="selection-title">心に触れた一枚を、<br />拾ってください。</h2>
+          <p id="selection-hint">よく覚えていなくても、かまいません。</p>
+        </div>
+        <div id="card-grid" class="card-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="question-screen" class="screen question-screen" aria-labelledby="question-text" hidden>
+        <header class="screen-header question-header">
+          <button id="question-back" class="text-button back-button" type="button">← ひとつ戻る</button>
+          <p id="question-progress" class="journey-progress"></p>
+        </header>
+        <div class="question-memory">
+          <p>いま拾った記憶</p>
+          <h2 id="current-memory-title"></h2>
+        </div>
+        <div id="question-stage" class="question-stage">
+          <p class="section-kicker">A SMALL DETAIL</p>
+          <h3 id="question-text"></h3>
+          <p id="multi-hint" class="multi-hint" hidden>いくつ選んでもかまいません</p>
+          <div id="answer-options" class="answer-options"></div>
+          <button id="answer-next" class="primary-button answer-next" type="button" hidden>
+            <span>この記憶をたどる</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen result-screen" aria-labelledby="result-title" hidden>
+        <header class="result-header">
+          <p class="brand-small">YOUR LIBRARY STORY</p>
+          <p class="section-kicker">MEMORIES GATHERED</p>
+          <h2 id="result-title">あなたがたどった、<br />図書館の風景。</h2>
+        </header>
+        <div id="result-album" class="result-album" aria-label="選んだ記憶"></div>
+        <blockquote id="story-text" class="story-text"></blockquote>
+        <div id="timeline" class="timeline" hidden></div>
+        <div class="result-actions">
+          <button id="explore-button" class="primary-button" type="button">
+            <span>ほかの記憶も、たどってみる</span><span aria-hidden="true">→</span>
+          </button>
+          <button id="reset-button" class="text-button reset-button" type="button">はじめから</button>
+        </div>
+      </section>
+
+      <section id="error-screen" class="screen error-screen" aria-labelledby="error-title" hidden>
+        <p class="brand-small">YOUR LIBRARY STORY</p>
+        <h2 id="error-title">記憶のカードを<br />開けませんでした。</h2>
+        <p>通信を確かめて、もう一度読み込んでください。</p>
+        <button class="primary-button" type="button" onclick="location.reload()">
+          <span>もう一度</span><span aria-hidden="true">↻</span>
+        </button>
+      </section>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
