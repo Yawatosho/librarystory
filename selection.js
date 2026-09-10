@@ -17,7 +17,6 @@ const ANSWER_TAG_RULES = [
   { pattern: /暗かった|閉館/, tags: ["evening"] },
   { pattern: /本|表紙|タイトル|作家|棚で偶然|おすすめ/, tags: ["book", "discovery"] },
   { pattern: /変わった|進学|卒業|引っ越し/, tags: ["change"] },
-  { pattern: /ぜひ残したい|候補に残したい/, tags: ["nostalgia"] },
 ];
 
 export function hashString(value) {

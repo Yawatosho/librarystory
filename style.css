@@ -27,6 +27,7 @@ body {
   min-width: 320px;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 15% 12%, rgba(255, 255, 255, 0.72), transparent 32%),
     linear-gradient(148deg, #f7f3e9 0%, var(--paper) 62%, #eee7d8 100%);
@@ -160,7 +161,7 @@ button:focus-visible {
 .screen-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 42px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
@@ -245,7 +246,7 @@ button:focus-visible {
   display: flex;
   width: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: var(--card-padding-top, 18px) var(--card-padding-x, 15px) 14px;
   overflow: hidden;
   border: 1px solid rgba(80, 70, 52, 0.15);
@@ -287,15 +288,8 @@ button:focus-visible {
   }
 }
 
-.memory-card-number {
-  color: var(--ink-soft);
-  font-family: var(--serif);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-}
-
 .memory-card h3 {
-  margin: 19px 0 9px;
+  margin: 0 0 9px;
   font-family: var(--serif);
   font-size: clamp(1rem, 4.2vw, 1.18rem);
   font-weight: 500;
@@ -309,20 +303,13 @@ button:focus-visible {
   line-height: 1.65;
 }
 
-.card-pick {
-  align-self: flex-end;
-  margin-top: 14px;
-  color: var(--accent);
-  font-size: 1rem;
-}
-
 .question-screen {
   flex-direction: column;
   max-width: 700px;
   margin: 0 auto;
 }
 
-.question-header { flex-direction: row; }
+.question-header { flex-direction: row; justify-content: space-between; }
 
 .text-button {
   padding: 8px 0;
@@ -421,12 +408,18 @@ button:focus-visible {
   align-items: center;
   max-width: 850px;
   margin: 0 auto;
-  padding: 13px 0 54px;
+  padding: 28px 0 54px;
 }
 
 .result-header { width: 100%; text-align: center; }
-.result-header .brand-small { margin-bottom: 46px; }
-.result-header h2 { margin-top: 10px; }
+.result-header h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
 
 .result-album {
   position: relative;
@@ -436,7 +429,7 @@ button:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: center;
   gap: 0;
-  margin: 24px auto 16px;
+  margin: 38px auto 16px;
   padding: 18px 5px;
 }
 
@@ -470,7 +463,7 @@ button:focus-visible {
 }
 
 .album-card h3 {
-  margin: 8px 0 16px;
+  margin: 0 0 16px;
   font-family: var(--serif);
   font-size: clamp(1rem, 4.4vw, 1.25rem);
   font-weight: 500;
@@ -483,33 +476,6 @@ button:focus-visible {
   font-size: 0.82rem;
   line-height: 1.55;
 }
-
-.story-text {
-  width: min(100%, 670px);
-  margin: 34px 0 0;
-  padding: 35px 9px 34px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  font-family: var(--serif);
-  font-size: clamp(1.08rem, 4.7vw, 1.38rem);
-  font-style: normal;
-  line-height: 2;
-  text-align: center;
-  white-space: pre-line;
-}
-
-.timeline {
-  width: min(100%, 670px);
-  margin: 44px 0 6px;
-  padding: 0 2px;
-}
-
-.timeline-label { margin: 0 0 18px; color: var(--ink-soft); font-size: 0.7rem; letter-spacing: 0.16em; text-align: center; }
-.timeline-track { position: relative; display: flex; justify-content: space-between; gap: 10px; }
-.timeline-track::before { content: ""; position: absolute; top: 5px; left: 9%; right: 9%; height: 1px; background: var(--line); }
-.timeline-stop { position: relative; flex: 1; color: var(--ink-soft); font-family: var(--serif); font-size: 0.64rem; letter-spacing: 0.08em; text-align: center; }
-.timeline-stop::before { content: ""; display: block; width: 9px; height: 9px; margin: 0 auto 10px; border: 1px solid var(--accent); border-radius: 50%; background: var(--paper); }
-.timeline-stop.is-present::before { background: var(--accent); box-shadow: 0 0 0 4px var(--paper); }
 
 .result-actions { display: flex; flex-direction: column; align-items: center; margin-top: 48px; }
 .reset-button { margin-top: 16px; font-size: 0.8rem; }

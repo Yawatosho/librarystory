@@ -6,8 +6,6 @@ import {
   selectNextCards,
 } from "./selection.js";
 import {
-  buildStory,
-  buildTimeline,
   getMemoryDetails,
   selectRepresentativeMemories,
 } from "./result.js";
@@ -39,7 +37,6 @@ const elements = {
   error: document.querySelector("#error-screen"),
   startButton: document.querySelector("#start-button"),
   resumeNote: document.querySelector("#resume-note"),
-  journeyProgress: document.querySelector("#journey-progress"),
   selectionHint: document.querySelector("#selection-hint"),
   cardGrid: document.querySelector("#card-grid"),
   questionBack: document.querySelector("#question-back"),
@@ -51,8 +48,6 @@ const elements = {
   answerOptions: document.querySelector("#answer-options"),
   answerNext: document.querySelector("#answer-next"),
   resultAlbum: document.querySelector("#result-album"),
-  storyText: document.querySelector("#story-text"),
-  timeline: document.querySelector("#timeline"),
   exploreButton: document.querySelector("#explore-button"),
   resetButton: document.querySelector("#reset-button"),
 };
@@ -145,8 +140,6 @@ function prepareBatch(initial = false) {
 
 function renderSelection() {
   state.screen = "selection";
-  const currentRound = Math.min(completedCount() + 1, CONFIG.playRounds);
-  elements.journeyProgress.textContent = state.exploreMode ? "ANOTHER MEMORY" : `${currentRound} / ${CONFIG.playRounds}`;
   elements.selectionHint.textContent = state.exploreMode
     ? "まだ選んでいない記憶を並べました。"
     : "気になる記憶を選んでみてください。";
@@ -165,12 +158,10 @@ function renderSelection() {
     button.setAttribute("aria-label", `${card.title}。${card.subtitle}`);
     button.innerHTML = `
       <span class="memory-card-inner">
-        <span class="memory-card-number">MEMORY ${String(index + 1).padStart(2, "0")}</span>
-        <span>
+        <span class="memory-card-copy">
           <h3>${escapeHtml(card.title)}</h3>
           <p>${escapeHtml(card.subtitle)}</p>
         </span>
-        <span class="card-pick" aria-hidden="true">↗</span>
       </span>`;
     button.addEventListener("click", () => pickMemory(card, button));
     elements.cardGrid.append(button);
@@ -341,31 +332,13 @@ function renderResult() {
     applyAlbumCardLayout(article, card.id);
     const details = getMemoryDetails(data, memory);
     article.innerHTML = `
-      <span class="memory-card-number">MEMORY ${String(index + 1).padStart(2, "0")}</span>
       <h3>${escapeHtml(card.title)}</h3>
       ${details.map((detail) => `<p class="album-detail">${escapeHtml(detail)}</p>`).join("")}`;
     elements.resultAlbum.append(article);
   });
 
-  const story = buildStory(data, state, memories);
-  elements.storyText.textContent = story.lines.join("\n");
-  renderTimeline(buildTimeline(data, state.selectedMemories.filter((memory) => memory.completed)));
   saveState();
   showScreen("result");
-}
-
-function renderTimeline(stages) {
-  if (!stages.length) {
-    elements.timeline.hidden = true;
-    elements.timeline.replaceChildren();
-    return;
-  }
-  elements.timeline.hidden = false;
-  elements.timeline.innerHTML = `
-    <p class="timeline-label">WHEN IT HAPPENED</p>
-    <div class="timeline-track">
-      ${stages.map((stage) => `<span class="timeline-stop${stage.active ? " is-present" : ""}">${stage.label}</span>`).join("")}
-    </div>`;
 }
 
 function exploreMore() {
@@ -394,14 +367,15 @@ function animateQuestionStage() {
 function applyMemoryCardLayout(element, card) {
   const seed = hashString(`layout:${card.id}`);
   const tilt = ((seed % 41) - 20) / 10;
-  const x = ((seed >>> 5) % 13) - 6;
-  const y = ((seed >>> 9) % 19) - 8;
+  const x = ((seed >>> 5) % 17) - 8;
+  const y = ((seed >>> 9) % 29) - 13;
   const mobileHeight = Math.max(185, Math.min(275, 118 + Math.ceil(card.title.length / 10) * 27
     + Math.ceil(card.subtitle.length / 13) * 22 + ((seed >>> 21) % 9)));
   const desktopHeight = Math.max(190, Math.min(260, 112 + Math.ceil(card.title.length / 13) * 27
     + Math.ceil(card.subtitle.length / 18) * 22 + ((seed >>> 21) % 9)));
-  const mobileSpan = Math.ceil((mobileHeight + 16) / 8);
-  const desktopSpan = Math.ceil((desktopHeight + 18) / 8);
+  const spacing = 12 + ((seed >>> 13) % 19);
+  const mobileSpan = Math.ceil((mobileHeight + spacing) / 8);
+  const desktopSpan = Math.ceil((desktopHeight + spacing + 2) / 8);
   const paddingX = 13 + ((seed >>> 24) % 5);
   const paddingTop = 16 + ((seed >>> 27) % 7);
   element.style.setProperty("--card-tilt", `${tilt}deg`);
@@ -412,7 +386,7 @@ function applyMemoryCardLayout(element, card) {
   element.style.setProperty("--card-desktop-height", `${desktopHeight}px`);
   element.style.setProperty("--card-mobile-span", String(mobileSpan));
   element.style.setProperty("--card-desktop-span", String(desktopSpan));
-  element.style.setProperty("--card-narrow", `${(seed >>> 17) % 7}px`);
+  element.style.setProperty("--card-narrow", `${(seed >>> 17) % 15}px`);
   element.style.setProperty("--card-padding-x", `${paddingX}px`);
   element.style.setProperty("--card-padding-top", `${paddingTop}px`);
   element.style.setProperty("--card-z", String(1 + ((seed >>> 29) % 3)));
