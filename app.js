@@ -1,5 +1,6 @@
 import {
   chooseQuestions,
+  hashString,
   recalculateTagWeights,
   selectInitialCards,
   selectNextCards,
@@ -59,6 +60,7 @@ const elements = {
 let data = null;
 let state = createFreshState();
 let advanceTimer = null;
+let cardPickTimer = null;
 
 function createFreshState() {
   return {
@@ -146,8 +148,8 @@ function renderSelection() {
   const currentRound = Math.min(completedCount() + 1, CONFIG.playRounds);
   elements.journeyProgress.textContent = state.exploreMode ? "ANOTHER MEMORY" : `${currentRound} / ${CONFIG.playRounds}`;
   elements.selectionHint.textContent = state.exploreMode
-    ? "まだ開いていないカードを集めました。"
-    : "よく覚えていなくても、かまいません。";
+    ? "まだ選んでいない記憶を並べました。"
+    : "気になる記憶を選んでみてください。";
   elements.cardGrid.replaceChildren();
 
   const cards = state.currentBatch
@@ -159,6 +161,7 @@ function renderSelection() {
     button.className = "memory-card";
     button.style.setProperty("--card-index", index);
     button.style.setProperty("--card-accent", ACCENT_COLORS[index % ACCENT_COLORS.length]);
+    applyMemoryCardLayout(button, card);
     button.setAttribute("aria-label", `${card.title}。${card.subtitle}`);
     button.innerHTML = `
       <span class="memory-card-inner">
@@ -169,14 +172,24 @@ function renderSelection() {
         </span>
         <span class="card-pick" aria-hidden="true">↗</span>
       </span>`;
-    button.addEventListener("click", () => pickMemory(card));
+    button.addEventListener("click", () => pickMemory(card, button));
     elements.cardGrid.append(button);
   });
   saveState();
   showScreen("selection");
 }
 
-function pickMemory(card) {
+function pickMemory(card, button) {
+  if (cardPickTimer) return;
+  button.classList.add("is-picked");
+  button.disabled = true;
+  cardPickTimer = setTimeout(() => {
+    cardPickTimer = null;
+    beginMemory(card);
+  }, 220);
+}
+
+function beginMemory(card) {
   if (advanceTimer) clearTimeout(advanceTimer);
   const questions = chooseQuestions(card, data.questions, CONFIG, state.selectedMemories.length, state.seed);
   const memory = {
@@ -325,6 +338,7 @@ function renderResult() {
     const article = document.createElement("article");
     article.className = "album-card";
     article.style.setProperty("--album-index", index);
+    applyAlbumCardLayout(article, card.id);
     const details = getMemoryDetails(data, memory);
     article.innerHTML = `
       <span class="memory-card-number">MEMORY ${String(index + 1).padStart(2, "0")}</span>
@@ -348,7 +362,7 @@ function renderTimeline(stages) {
   }
   elements.timeline.hidden = false;
   elements.timeline.innerHTML = `
-    <p class="timeline-label">A QUIET TIMELINE</p>
+    <p class="timeline-label">WHEN IT HAPPENED</p>
     <div class="timeline-track">
       ${stages.map((stage) => `<span class="timeline-stop${stage.active ? " is-present" : ""}">${stage.label}</span>`).join("")}
     </div>`;
@@ -361,6 +375,8 @@ function exploreMore() {
 }
 
 function resetExperience() {
+  if (cardPickTimer) clearTimeout(cardPickTimer);
+  cardPickTimer = null;
   localStorage.removeItem(STORAGE_KEY);
   state = createFreshState();
   prepareBatch(true);
@@ -373,6 +389,41 @@ function resetExperience() {
 function animateQuestionStage() {
   elements.questionStage.classList.remove("is-changing");
   requestAnimationFrame(() => elements.questionStage.classList.add("is-changing"));
+}
+
+function applyMemoryCardLayout(element, card) {
+  const seed = hashString(`layout:${card.id}`);
+  const tilt = ((seed % 41) - 20) / 10;
+  const x = ((seed >>> 5) % 13) - 6;
+  const y = ((seed >>> 9) % 19) - 8;
+  const mobileHeight = Math.max(185, Math.min(275, 118 + Math.ceil(card.title.length / 10) * 27
+    + Math.ceil(card.subtitle.length / 13) * 22 + ((seed >>> 21) % 9)));
+  const desktopHeight = Math.max(190, Math.min(260, 112 + Math.ceil(card.title.length / 13) * 27
+    + Math.ceil(card.subtitle.length / 18) * 22 + ((seed >>> 21) % 9)));
+  const mobileSpan = Math.ceil((mobileHeight + 16) / 8);
+  const desktopSpan = Math.ceil((desktopHeight + 18) / 8);
+  const paddingX = 13 + ((seed >>> 24) % 5);
+  const paddingTop = 16 + ((seed >>> 27) % 7);
+  element.style.setProperty("--card-tilt", `${tilt}deg`);
+  element.style.setProperty("--card-hover-tilt", `${(tilt * 0.18).toFixed(2)}deg`);
+  element.style.setProperty("--card-x", `${x}px`);
+  element.style.setProperty("--card-y", `${y}px`);
+  element.style.setProperty("--card-mobile-height", `${mobileHeight}px`);
+  element.style.setProperty("--card-desktop-height", `${desktopHeight}px`);
+  element.style.setProperty("--card-mobile-span", String(mobileSpan));
+  element.style.setProperty("--card-desktop-span", String(desktopSpan));
+  element.style.setProperty("--card-narrow", `${(seed >>> 17) % 7}px`);
+  element.style.setProperty("--card-padding-x", `${paddingX}px`);
+  element.style.setProperty("--card-padding-top", `${paddingTop}px`);
+  element.style.setProperty("--card-z", String(1 + ((seed >>> 29) % 3)));
+}
+
+function applyAlbumCardLayout(element, cardId) {
+  const seed = hashString(`album:${cardId}`);
+  element.style.setProperty("--album-tilt", `${((seed % 45) - 22) / 10}deg`);
+  element.style.setProperty("--album-x", `${((seed >>> 6) % 15) - 7}px`);
+  element.style.setProperty("--album-y", `${((seed >>> 11) % 17) - 8}px`);
+  element.style.setProperty("--album-z", String(1 + ((seed >>> 16) % 4)));
 }
 
 function escapeHtml(value) {
@@ -402,8 +453,17 @@ async function initialize() {
 
     state = loadState();
     state.selectedMemories = state.selectedMemories.filter((memory) => data.cards.some((card) => card.id === memory.cardId));
+    const enabledQuestionIds = new Set(data.questions.filter((question) => question.enabled !== false).map((question) => question.id));
+    state.selectedMemories.forEach((memory) => {
+      memory.questionIds = (memory.questionIds || []).filter((id) => enabledQuestionIds.has(id));
+      Object.keys(memory.answers || {}).forEach((id) => {
+        if (!enabledQuestionIds.has(id)) delete memory.answers[id];
+      });
+    });
+    const activeMemory = getActiveMemory();
+    if (activeMemory) state.currentQuestionIndex = Math.min(state.currentQuestionIndex, Math.max(0, activeMemory.questionIds.length - 1));
     state.tagWeights = recalculateTagWeights(data, state);
-    const hasProgress = state.selectedMemories.length > 0 || state.shownCardIds.length > 0;
+    const hasProgress = state.selectedMemories.length > 0;
     elements.resumeNote.hidden = !hasProgress;
     if (hasProgress) elements.startButton.querySelector("span").textContent = "つづきから";
 

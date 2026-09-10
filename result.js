@@ -12,24 +12,19 @@ const STORY_TYPE_SCORES = {
 
 const STORY_TEMPLATES = {
   time: [
-    ["{time}の図書館。", "通い方も、そばにいる人も、少しずつ変わっていく。", "それぞれの時間が、静かに同じ場所へつながっています。"],
-    ["連れて行ってもらった日も、自分で扉を開けた日も。", "図書館をめぐる時間は、ところどころ姿を変えて、", "いまの記憶へ続いています。"],
+    ["{timeRange}。", "{timeExamples}という出来事を思い出しました。"],
   ],
   people: [
-    ["図書館で思い出すのは、本のことだけではありません。", "{people}の気配や、交わした言葉、ただ見ていた時間。", "人のいる風景も、そっと残っています。"],
-    ["静かな棚のあいだに、{people}との時間がありました。", "話したことも、話さなかったことも、", "本と一緒に記憶の中へしまわれています。"],
+    ["{peopleExamples}。", "図書館の記憶には、人のことも残っていました。"],
   ],
   place: [
-    ["{detail}。", "そこにあった光や音まで、少しずつ戻ってくる。", "図書館の風景は、記憶の中でまだ静かに続いています。"],
-    ["棚のあいだ、いつもの席、窓の向こう。", "{detail}という小さな手がかりから、", "ひとつの図書館の風景が浮かびます。"],
+    ["{placeDetails}。", "{placeExamples}という記憶もありました。"],
   ],
   book: [
-    ["一冊を選んだ理由は、{bookDetail}。", "その出会いから別の棚へ、別の時間へ。", "本をめぐる記憶が、いまも細くつながっています。"],
-    ["覚えている表紙も、もう思い出せない題名も。", "本を探して手を伸ばした時間が、", "図書館の風景の中に残っています。"],
+    ["{bookExamples}。", "本を選んだときや、棚を歩いたときのことも思い出しました。"],
   ],
   fragments: [
-    ["はっきりした場面と、雰囲気だけの場面。", "{detail}という小さな断片を拾うと、", "いくつかの図書館が、ゆっくり一枚の風景になります。"],
-    ["すべてを覚えていなくても、残っているものがあります。", "音や光、棚の並び、そこで過ごした少しの時間。", "記憶の断片が、静かに隣り合っています。"],
+    ["{memoryExamples}。", "ばらばらの記憶ですが、どれも図書館で起きたことでした。"],
   ],
 };
 
@@ -71,14 +66,22 @@ export function selectRepresentativeMemories(data, state, count = 4) {
       .map((item) => data.cards.find((candidate) => candidate.id === item.cardId))
       .filter(Boolean);
     const centrality = card ? memorySimilarity(card, otherCards) : 0;
-    const keep = getAnswerLabels(data, memory, "q038")[0];
-    const self = getAnswerLabels(data, memory, "q039")[0];
-    const keepBonus = keep === "ぜひ残したい" ? 3 : keep === "候補に残したい" ? 1.6 : 0;
-    const selfBonus = self === "かなり自分らしい" ? 2.2 : self === "少し自分らしい" ? 1.2 : self === "むしろ意外な記憶" ? 1.5 : 0;
     const distinctive = 1 - centrality;
     const finaleWeight = card?.finaleWeight || 1;
+    const detailCount = Object.entries(memory.answers || {}).reduce((sum, [questionId, optionIds]) => {
+      const question = getQuestion(data, questionId);
+      if (!question || question.enabled === false || ["q038", "q039"].includes(questionId)) return sum;
+      return sum + Math.min((optionIds || []).length, 2);
+    }, 0);
     const noise = seededRandom(hashString(`${state.seed}:${memory.cardId}:result`))() * 0.32;
-    return { memory, index, centrality, distinctive, score: centrality * 3 + keepBonus + selfBonus + finaleWeight + noise };
+    return {
+      memory,
+      index,
+      centrality,
+      distinctive,
+      detailCount,
+      score: centrality * 3 + Math.min(detailCount, 4) * 0.55 + finaleWeight + noise,
+    };
   });
 
   const result = [];
@@ -86,11 +89,7 @@ export function selectRepresentativeMemories(data, state, count = 4) {
     if (item && !result.includes(item.memory)) result.push(item.memory);
   };
   add([...scored].sort((a, b) => b.score - a.score)[0]);
-  add([...scored].sort((a, b) => {
-    const aKeep = getAnswerLabels(data, a.memory, "q038")[0] === "ぜひ残したい" ? 1 : 0;
-    const bKeep = getAnswerLabels(data, b.memory, "q038")[0] === "ぜひ残したい" ? 1 : 0;
-    return bKeep - aKeep || b.score - a.score;
-  })[0]);
+  add([...scored].sort((a, b) => b.detailCount - a.detailCount || b.score - a.score)[0]);
   const timeRank = (item) => {
     const label = getAnswerLabels(data, item.memory, "q001")[0] || "";
     return TIME_STAGES.findIndex((stage) => stage.matches.some((pattern) => pattern.test(label)));
@@ -130,18 +129,41 @@ export function buildStory(data, state, memories) {
   const templateSet = STORY_TEMPLATES[type];
   const template = templateSet[hashString(`${state.seed}:${type}:${memories.length}`) % templateSet.length];
   const labels = allUsefulLabels(data, memories);
-  const time = labels.find((label) => /幼いころ|小学生|中高生|大学|専門学校|社会人|最近/.test(label)) || "いくつかの頃";
-  const people = labels.find((label) => /家族|友達|好きな人|気になる人|先生|学校の人|子ども/.test(label)) || "誰か";
-  const detail = labels.find((label) => /窓|棚|机|椅子|静か|明るい|暗い|広い|小さい|古い|新しい|落ち着|雨|雪|外の景色/.test(label)) || "光や音、棚の並び";
-  const bookDetail = labels.find((label) => /表紙|タイトル|作家|偶然|おすすめ|授業|課題/.test(label)) || "ふと目に留まったこと";
+  const timeLabels = [...new Set(labels.filter((label) => /幼いころ|小学生|中高生|大学|専門学校|社会人|最近/.test(label)))]
+    .sort((a, b) => {
+      const rank = (label) => TIME_STAGES.findIndex((stage) => stage.matches.some((pattern) => pattern.test(label)));
+      return rank(a) - rank(b);
+    });
+  const timeRange = timeLabels.length > 1
+    ? `${timeLabels[0]}の図書館と、${timeLabels[timeLabels.length - 1]}の図書館`
+    : `${timeLabels[0] || "以前"}の図書館`;
+  const placeLabels = [...new Set(labels.filter((label) => /窓|棚|机|椅子|静か|明るい|暗い|広い|小さい|古い|新しい|落ち着|雨|雪|外の景色|閉館/.test(label)))];
+  const placeDetails = placeLabels.length ? placeLabels.slice(0, 3).join("、") : "いつもの席や、館内の様子";
+  const exampleForTags = (tags, fallback) => {
+    const matching = memories
+      .map((memory) => data.cards.find((card) => card.id === memory.cardId))
+      .filter((card) => card && (!tags.length || card.tags.some((tag) => tags.includes(tag))))
+      .slice(0, 2)
+      .map((card) => `「${card.title}」`)
+      .join("と");
+    return matching || fallback;
+  };
+  const memoryExamples = exampleForTags([], "いくつかの出来事");
+  const timeExamples = exampleForTags(["change", "return", "distance", "transition", "childhood", "school", "work"], memoryExamples);
+  const peopleExamples = exampleForTags(["people", "family", "friend", "romance", "parenting", "librarian"], memoryExamples);
+  const placeExamples = exampleForTags(["place", "comfort", "weather", "evening", "sensory"], memoryExamples);
+  const bookExamples = exampleForTags(["book", "reading", "borrowing", "discovery", "study"], memoryExamples);
 
   return {
     type,
     lines: template.map((line) => line
-      .replace("{time}", time)
-      .replace("{people}", people)
-      .replace("{detail}", detail)
-      .replace("{bookDetail}", bookDetail)),
+      .replace("{timeRange}", timeRange)
+      .replace("{timeExamples}", timeExamples)
+      .replace("{peopleExamples}", peopleExamples)
+      .replace("{placeDetails}", placeDetails)
+      .replace("{placeExamples}", placeExamples)
+      .replace("{bookExamples}", bookExamples)
+      .replace("{memoryExamples}", memoryExamples)),
   };
 }
 
@@ -150,15 +172,19 @@ export function buildTimeline(data, memories) {
   const activeKeys = TIME_STAGES
     .filter((stage) => timeLabels.some((label) => stage.matches.some((pattern) => pattern.test(label))))
     .map((stage) => stage.key);
-  return activeKeys.length ? TIME_STAGES.map((stage) => ({ ...stage, active: activeKeys.includes(stage.key) })) : [];
+  return activeKeys.length >= 2 ? TIME_STAGES.map((stage) => ({ ...stage, active: activeKeys.includes(stage.key) })) : [];
 }
 
 export function getMemoryDetails(data, memory, limit = 2) {
   const priority = ["q001", "q002", "q019", "q021", "q006", "q023", "q026", "q027", "q010", "q036", "q004"];
   const ignored = /覚えていない|よく覚えていない|あまり覚えていない|どちら|うまく言えない|今回は残さなくていい/;
   const details = [];
+  const questionIds = [
+    ...priority,
+    ...Object.keys(memory.answers || {}).filter((id) => !priority.includes(id) && !["q038", "q039"].includes(id)),
+  ];
 
-  for (const questionId of priority) {
+  for (const questionId of questionIds) {
     const labels = getAnswerLabels(data, memory, questionId).filter((label) => !ignored.test(label));
     if (labels.length) details.push(labels.slice(0, 2).join("・"));
     if (details.length >= limit) break;

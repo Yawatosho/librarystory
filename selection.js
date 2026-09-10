@@ -168,12 +168,11 @@ export function chooseQuestions(card, allQuestions, config, memoryIndex, seed) {
   );
   const random = seededRandom(hashString(`${seed}:${card.id}:questions`));
   const selected = [];
-  const reflectionId = memoryIndex % 2 === 0 ? "q038" : "q039";
-  const reflection = available.find((question) => question.id === reflectionId)
-    || available.find((question) => ["q038", "q039"].includes(question.id));
 
   const timeQuestion = available.find((question) => question.id === "q001");
-  if (timeQuestion) selected.push(timeQuestion);
+  // 時期は4回のうち3回ほどに留め、毎回同じ聞き方から始めないようにします。
+  const includeTime = memoryIndex % 4 !== 1;
+  if (timeQuestion && includeTime) selected.push(timeQuestion);
 
   const contextual = shuffled(
     available.filter((question) => !["q001", "q038", "q039", "q040"].includes(question.id)),
@@ -183,15 +182,10 @@ export function chooseQuestions(card, allQuestions, config, memoryIndex, seed) {
     const bOverlap = b.tags.filter((tag) => card.tags.includes(tag)).length;
     return bOverlap - aOverlap;
   });
-  const reservedReflection = reflection && desired >= 3 ? 1 : 0;
-  const contextualTarget = Math.max(1, desired - selected.length - reservedReflection);
+  const contextualTarget = Math.max(1, desired - selected.length);
   takeUnique(selected, contextual, selected.length + contextualTarget);
 
-  if (reflection && desired >= 3 && !selected.some((question) => question.id === reflection.id)) {
-    selected.push(reflection);
-  }
-
-  takeUnique(selected, shuffled(available, random), desired);
+  takeUnique(selected, shuffled(available.filter((question) => !["q038", "q039"].includes(question.id)), random), desired);
   return selected.slice(0, desired);
 }
 
@@ -205,6 +199,7 @@ export function recalculateTagWeights(data, state) {
 
     Object.entries(memory.answers || {}).forEach(([questionId, optionIds]) => {
       const question = data.questions.find((item) => item.id === questionId);
+      if (!question || question.enabled === false) return;
       question?.tags.forEach((tag) => add(tag, 0.3));
       (optionIds || []).forEach((optionId) => {
         const label = question?.options.find((option) => option.id === optionId)?.label || "";
